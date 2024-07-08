@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="base h-screen flex items-center flex-col" >
+      <div className="base  flex items-center flex-col" >
         <Start/>
       </div>
     </>
