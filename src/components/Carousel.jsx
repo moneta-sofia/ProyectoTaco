@@ -3,8 +3,27 @@ import "slick-carousel/slick/slick-theme.css";
 
 // import React from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export function Carousel(){
+
+  const [dragging, setDragging] = useState(false);
+
+  const handleBeforeChange = () => {
+    setDragging(true);
+  };
+
+  const handleAfterChange = () => {
+    setDragging(false);
+  };
+
+  const handleClick = (e) => {
+    if (dragging) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
 
     var settings = {
         dots: false,
@@ -17,6 +36,8 @@ export function Carousel(){
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 2,
+        beforeChange: handleBeforeChange,
+        afterChange: handleAfterChange,
         responsive: [
             {
               breakpoint: 1024, // Para pantallas menores a 1024px
@@ -37,18 +58,18 @@ export function Carousel(){
     
     return(
         <Slider {...settings} className="w-full h-4/6 my-5 flex">
-            <a href="#" draggable="false" id="chDesign" className="categoria ">
+            <Link to="characterDesign" draggable="false" id="chDesign" className="categoria " onClick={handleClick}>
                 <p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug">Character <br/>Design</p>
-            </a>
-            <a href="#" draggable="false" id="animation" className="categoria ">
+            </Link>
+            <Link to="animation" draggable="false" id="animation" className="categoria " onClick={handleClick}>
                 <p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug">Animation</p>
-            </a>
-            <a href="#" draggable="false" id="bgDesign" className="categoria ">
+            </Link>
+            <Link to="backgroundDesign" draggable="false" id="bgDesign" className="categoria " onClick={handleClick}>
                 <p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug">Background <br/>Design</p>
-            </a>
-            <a href="#" draggable="false" id="ilustration" className="categoria ">
+            </Link>
+            <Link to="ilustration" draggable="false" id="ilustration" className="categoria " onClick={handleClick}>
                 <p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug">Ilustration</p>
-            </a>
+            </Link>
 
 
         </Slider>
