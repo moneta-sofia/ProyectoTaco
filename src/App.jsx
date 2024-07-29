@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div className="base  flex items-center flex-col" >
+      <div className="base flex items-center flex-col" >
       <section className="w-full h-screen flex flex-col items-center">
                 <Carousel/>
                 <div className="h-2/6 flex flex-col justify-center items-center" >
