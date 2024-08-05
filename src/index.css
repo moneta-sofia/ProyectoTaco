@@ -3,69 +3,77 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Insanibc" ;
-    src: url('./assets/fonts/Insanibc.ttf');
+	font-family: 'Insanibc';
+	src: url('./assets/fonts/Insanibc.ttf');
 }
 @font-face {
-    font-family: "Quenda" ;
-    src: url('./assets/fonts/Quenda.otf');
+	font-family: 'Quenda';
+	src: url('./assets/fonts/Quenda.otf');
 }
 
-*{
-    font-family: Quenda;
-    text-align: center;
-    color: white;
-
+* {
+	font-family: Quenda;
+	text-align: center;
+	color: white;
 }
 
-.base{
-    background-image: url('./assets/img/background.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.base {
+	background-image: url('./assets/img/background.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-h1, h2, h3{
-    font-family: Insanibc;
-    color: white;
+h1,
+h2,
+h3 {
+	font-family: Insanibc;
+	color: white;
 }
 
-.text-carousel{
-    background-color: rgba(0, 0, 0, 0.523);
+.text-carousel {
+	background-color: rgba(0, 0, 0, 0.523);
 }
 
-.categoria{
-    height: 66vh;
-    /* width: 25%; */
-    display: flex !important; 
-    justify-content: center;
-    align-items: end;
-    z-index: 0;
+.categoria {
+	height: 66vh;
+	/* width: 25%; */
+	display: flex !important;
+	justify-content: center;
+	align-items: end;
+	z-index: 0;
 }
 
-#chDesign{
-    background: linear-gradient(rgba(128, 128, 128, 0.40), rgba(128, 128, 128, 0.40)),  url('./assets/img/carousel/CharacterDesign.webp')  center/cover no-repeat;
+#chDesign {
+	background:
+		linear-gradient(rgba(128, 128, 128, 0.4), rgba(128, 128, 128, 0.4)),
+		url('./assets/img/carousel/CharacterDesign.webp') center/cover no-repeat;
 }
-#bgDesign{
-        background: linear-gradient(rgba(128, 128, 128, 0.40), rgba(128, 128, 128, 0.40)), url('./assets/img/carousel/BgDesign.webp')  center/cover no-repeat;
+#bgDesign {
+	background:
+		linear-gradient(rgba(128, 128, 128, 0.4), rgba(128, 128, 128, 0.4)),
+		url('./assets/img/carousel/BgDesign.webp') center/cover no-repeat;
 }
-#ilustration{
-        background: linear-gradient(rgba(128, 128, 128, 0.40), rgba(128, 128, 128, 0.40)), url('./assets/img/carousel/Illustration.webp')  center/cover no-repeat;
+#ilustration {
+	background:
+		linear-gradient(rgba(128, 128, 128, 0.4), rgba(128, 128, 128, 0.4)),
+		url('./assets/img/carousel/Illustration.webp') center/cover no-repeat;
 }
-#animation{
-        background: linear-gradient(rgba(128, 128, 128, 0.40), rgba(128, 128, 128, 0.40)), url('./assets/img/carousel/Animation.webp')  center/cover no-repeat;
+#animation {
+	background:
+		linear-gradient(rgba(128, 128, 128, 0.4), rgba(128, 128, 128, 0.4)),
+		url('./assets/img/carousel/Animation.webp') center/cover no-repeat;
 }
 
 .carousel-item {
-    padding: 10px;
-    box-sizing: border-box; 
-  }
-  
-  .slick-slide {
-    margin: 0 10px;
-  }
+	padding: 10px;
+	box-sizing: border-box;
+}
 
-  
-  .slick-track {
-    display: flex;
-  }
+.slick-slide {
+	margin: 0 10px;
+}
+
+.slick-track {
+	display: flex;
+}
