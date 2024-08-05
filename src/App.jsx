@@ -2,11 +2,13 @@ import { FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { Carousel } from './components/Carousel';
+import UserOptions from './components/UserOptions';
 
 function App() {
 	return (
 		<>
 			<div className="base flex items-center flex-col">
+				<UserOptions/>
 				<section className="w-full h-screen flex flex-col items-center">
 					<Carousel />
 					<div className="h-2/6 flex flex-col justify-center items-center">
@@ -17,23 +19,23 @@ function App() {
 				<section className="w-full flex flex-col items-center ">
 					<div className="flex w-64 mb-8 justify-around items-center">
 						<a href="https://www.youtube.com/@Tacoelshido">
-							<FaYoutube size={35} />
+							<FaYoutube size={35} color="white" />
 						</a>
 						<a href="https://www.instagram.com/tacoelshido/">
-							<FaInstagram size={35} />
+							<FaInstagram size={35} color="white" />
 						</a>
 						<a href="">
-							<FaLinkedin size={35} />
+							<FaLinkedin size={35} color="white" />
 						</a>
 						<a href="https://x.com/tacoelshido">
-							<RiTwitterXFill size={35} />
+							<RiTwitterXFill size={35} color="white" />
 						</a>
 						<a href="https://www.tiktok.com/@tacoelshido">
-							<FaTiktok size={28} />
+							<FaTiktok size={28} color="white" />
 						</a>
 					</div>
 
-					<div className="w-full mb-16">
+					<div className="w-full mb-16 flex flex-col justify-center items-center">
 						<p className="my-4 text-2xl">Contact</p>
 						<textarea name="" id="" className="bg-transparent border-2 border-solid rounded-xl w-5/12 min-h-48 p-2"></textarea>
 					</div>

@@ -11,7 +11,7 @@
 	src: url('./assets/fonts/Quenda.otf');
 }
 
-* {
+p, textarea, button, input {
 	font-family: Quenda;
 	text-align: center;
 	color: white;
