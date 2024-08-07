@@ -6,7 +6,7 @@ export default function Area({ images }) {
 		<div className="w-10/12 bg-slate-300 h-fit">
             <SortableContext items={images} strategy={verticalListSortingStrategy}>
                 {images.map((image) => (
-                    <Images key={image._id} id={image._id} name={image.name} img={image.url}/>
+                    <Images key={image.id} id={image.id} name={image.name} img={image.url}/>
                 ))}
             </SortableContext>
 		</div>

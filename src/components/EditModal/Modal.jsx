@@ -4,7 +4,7 @@ import Area from './Area';
 import { arrayMove } from '@dnd-kit/sortable';
 export default function Modal({setModal,setImages, images}) {
 
-    const getImagesPosition = id => images.findIndex(image => image._id === id);
+    const getImagesPosition = id => images.findIndex(image => image.id === id);
 
     const handlerDragEnd = (event) => {
         const {active, over} = event;
