@@ -22,8 +22,6 @@ export default function Category({ name }) {
 		try {
 			const response = await fetch(`https://backtaco.onrender.com/images/${name}`);
 			const data = await response.json();
-			console.log(data);
-			console.log(transformImageData(data));
 			setImages(transformImageData(data));
 		} catch (error) {
 			console.log('Error fetching ' + error);

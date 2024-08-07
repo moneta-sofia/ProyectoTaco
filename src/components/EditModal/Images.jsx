@@ -10,7 +10,7 @@ export default function Images({ id, name, img }) {
 	};
 
 	return (
-		<div ref={setNodeRef}  style={style} {...attributes} {...listeners} className="m-3 p-2 bg-white flex rounded shadow-md touch-none border-solid border-red-300 border-2">
+		<div ref={setNodeRef}  style={style} {...attributes} {...listeners} className="m-2 p-2 bg-white flex rounded shadow-md touch-none">
 			<div className="h-5 w-5 bg-cover" style={{ backgroundImage: `url(${img})` }} />
 			<p className="text-black ml-3">{name}</p>
 		</div>
