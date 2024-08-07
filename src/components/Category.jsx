@@ -9,7 +9,7 @@ export default function Category({ name }) {
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
 
-	function transformImageData(images) {
+	function removeUnderscore(images) {
 		return images.map(image => {
 			// Extraemos el resto de las propiedades del objeto, excluyendo "_id"
 			const { _id, ...rest } = image;
@@ -22,7 +22,7 @@ export default function Category({ name }) {
 		try {
 			const response = await fetch(`https://backtaco.onrender.com/images/${name}`);
 			const data = await response.json();
-			setImages(transformImageData(data));
+			setImages(removeUnderscore(data));
 		} catch (error) {
 			console.log('Error fetching ' + error);
 		}
@@ -41,7 +41,7 @@ export default function Category({ name }) {
 				</button>
 			)}
 
-			{modal && <Modal setModal={setModal} setImages={setImages} images={images}/>}
+			{modal && <Modal setModal={setModal} setImages={setImages} images={images} categoryName={name}/>}
 
 			{images.length > 0 ? (
 				images.map((image) => {
