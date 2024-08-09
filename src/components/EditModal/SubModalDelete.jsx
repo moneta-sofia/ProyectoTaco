@@ -3,14 +3,14 @@ import { useContext, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { ImagesContext } from '../../contexts/imagesContext';
 
-export default function SubModal({ subModalInfo, setSubModal, setDraggable }) {
-	const { urlBase } = useContext(ImagesContext);
+export default function SubModalDelete({ subModalInfo, setSubModalDelete, setDraggable }) {
+	const { urlBase, deleteImage,deleteNewImage } = useContext(ImagesContext);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 	const token = localStorage.getItem('token');
 
 	const handlerClose = () => {
-		setSubModal(false);
+		setSubModalDelete(false);
 		setDraggable(true);
 	};
 
@@ -22,8 +22,9 @@ export default function SubModal({ subModalInfo, setSubModal, setDraggable }) {
 					Authorization: token,
 				},
 			})
-			.then(function (response) {
-				console.log(response);
+			.then(function () {
+				deleteImage(subModalInfo.id);
+				deleteNewImage(subModalInfo.id);
 			})
 			.catch(function (error) {
 				console.log(error);

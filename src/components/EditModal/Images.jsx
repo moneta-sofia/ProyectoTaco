@@ -2,10 +2,10 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { MdDelete } from 'react-icons/md';
 import { useState} from "react";
-import SubModal from './SubModal'
+import SubModalDelete from './SubModalDelete'
 
 export default function Images({ id, name, img , description }) {
-	const [subModal, setSubModal] = useState(false);
+	const [subModalDelete, setSubModalDelete] = useState(false);
 	const [draggable, setDraggable] = useState(true);
 	const [subModalInfo, setSubModalInfo] = useState({});
 	const {attributes, listeners, setNodeRef, transform, transition} = useSortable({ id, disabled: !draggable});
@@ -14,15 +14,13 @@ export default function Images({ id, name, img , description }) {
 		e.stopPropagation();
 		setDraggable(false);
 		setSubModalInfo({ id, name, img, description });
-		setSubModal(true);
-		console.log("handlerDelete");
-		
+		setSubModalDelete(true);		
 	}
 
 	const handlerDragable = () => {
-		if(subModal){
+		if(subModalDelete){
 			setDraggable(false);
-		}else if(!subModal){
+		}else if(!subModalDelete){
 			setDraggable(true);
 		}
     }
@@ -43,7 +41,7 @@ export default function Images({ id, name, img , description }) {
 					<MdDelete color="white" />
 				</button>
 			</div>
-			{subModal && <SubModal subModalInfo={subModalInfo} setSubModal={setSubModal} setDraggable={setDraggable}/>}
+			{subModalDelete && <SubModalDelete subModalInfo={subModalInfo} setSubModalDelete={setSubModalDelete} setDraggable={setDraggable}/>}
 		</div>
 	);
 }
