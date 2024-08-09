@@ -7,6 +7,13 @@ export const ImagesProvider = (props) => {
 	const [newImages, setNewImages] = useState([]);
 	const urlBase = 'https://backtaco.onrender.com';
 
+	function removeUnderscore(images) {
+		return images.map((image) => {
+			const { _id, ...rest } = image;
+			return { id: _id, ...rest };
+		});
+	}
+
 	const addImage = (newImage) => {
 		setImages((prevImages) => [...prevImages, newImage]);
 	};
@@ -54,6 +61,7 @@ export const ImagesProvider = (props) => {
 		deleteNewImage,
 		replaceNewImages,
 		urlBase,
+		removeUnderscore
 	};
 
 	return <ImagesContext.Provider value={value}>{props.children}</ImagesContext.Provider>;

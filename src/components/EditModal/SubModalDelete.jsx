@@ -49,7 +49,7 @@ export default function SubModalDelete({ subModalInfo, setSubModalDelete, setDra
 					</button>
 					<h1 className="text-black text-3xl">Are you sure to delete</h1>
 					<p className="text-black text-3xl"> "{subModalInfo.name}" ?</p>
-					<div className="w-32 aspect-square bg-cover my-5 shadow-md" style={{ backgroundImage: `url(${subModalInfo.img})` }} />
+					<img src={subModalInfo.img} alt={subModalInfo.name} className='h-36 my-5'/>
 					{loading && <div className='text-black'>Loading...</div>}
 					{error && <div className='text-black'>Error</div>}
 					<button onClick={deleteHandler} className='bg-black w-11/12 rounded shadow-md my-2 py-1 hover:bg-gray-900 active:bg-black'>Confirm</button>

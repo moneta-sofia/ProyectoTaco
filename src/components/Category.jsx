@@ -5,16 +5,10 @@ import Modal from './EditModal/Modal';
 import { ImagesContext } from '../contexts/imagesContext';
 
 export default function Category({ name }) {
-	const { images , replaceImages, urlBase } = useContext(ImagesContext);
+	const { images , replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
 
-	function removeUnderscore(images) {
-		return images.map((image) => {
-			const { _id, ...rest } = image;
-			return { id: _id, ...rest };
-		});
-	}
 
 	const fetchImages = async () => {
 		try {
