@@ -5,7 +5,7 @@ import Modal from './EditModal/Modal';
 import { ImagesContext } from '../contexts/imagesContext';
 
 export default function Category({ name }) {
-	const { images , replaceImages } = useContext(ImagesContext);
+	const { images , replaceImages, urlBase } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
 
@@ -18,7 +18,7 @@ export default function Category({ name }) {
 
 	const fetchImages = async () => {
 		try {
-			const response = await fetch(`https://backtaco.onrender.com/images/${name}`);
+			const response = await fetch(`${urlBase}/images/${name}`);
 			const data = await response.json();
 			replaceImages(removeUnderscore(data));
 		} catch (error) {

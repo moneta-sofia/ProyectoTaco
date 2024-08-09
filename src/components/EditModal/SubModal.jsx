@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
+import { ImagesContext } from '../../contexts/imagesContext';
 
 export default function SubModal({ subModalInfo, setSubModal, setDraggable }) {
+	const { urlBase } = useContext(ImagesContext);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 	const token = localStorage.getItem('token');
@@ -15,7 +17,7 @@ export default function SubModal({ subModalInfo, setSubModal, setDraggable }) {
 	const deleteHandler = () => {
 		setLoading(true);
 		axios
-			.delete(`https://backtaco.onrender.com/images/backgroundDesign/${subModalInfo.id}`, {
+			.delete(`${urlBase}/images/backgroundDesign/${subModalInfo.id}`, {
 				headers: {
 					Authorization: token,
 				},

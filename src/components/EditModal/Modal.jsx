@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { ImagesContext } from '../../contexts/imagesContext';
 export default function Modal({ setModal,  categoryName }) {
-	const { images, replaceImages, newImages, replaceNewImages } = useContext(ImagesContext)
+	const { images, replaceImages, newImages, replaceNewImages, urlBase } = useContext(ImagesContext)
 	const [loading, setLoading] = useState(false);
 	const [errorrUpdating, setErrorUpdating] = useState(false);
 
@@ -39,7 +39,7 @@ export default function Modal({ setModal,  categoryName }) {
 
 		axios
 			.put(
-				`https://backtaco.onrender.com/images/${categoryName}/`,
+				`${urlBase}/images/${categoryName}/`,
 				{
 					...addUnderscore(changedPositionNewImages),
 				},
