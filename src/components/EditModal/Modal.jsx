@@ -8,11 +8,10 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 	const [loading, setLoading] = useState(false);
 	const [errorrUpdating, setErrorUpdating] = useState(false);
 	const [newImages, setNewImages] = useState(images);
-    const token = localStorage.getItem('token');
+	const token = localStorage.getItem('token');
 
-    
 	function addUnderscore(images) {
-		return images.map(image => {
+		return images.map((image) => {
 			const { id, ...rest } = image;
 			return { _id: id, ...rest };
 		});
@@ -30,7 +29,7 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 
 	const handlerSubmitChanges = () => {
 		setLoading(true);
-        const changedPositionNewImages = changePositions()
+		const changedPositionNewImages = changePositions();
 
 		axios
 			.put(
@@ -40,17 +39,18 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 				},
 				{
 					headers: {
-						'Authorization': token,
+						Authorization: token,
 					},
 				}
 			)
 			.then(function () {
-                setImages(newImages)
+				setImages(newImages);
 			})
 			.catch(function () {
-                setTimeout(() => {
-                    setErrorUpdating(false);
-                }, 5000);
+				setErrorUpdating(true);
+				setTimeout(() => {
+					setErrorUpdating(false);
+				}, 5000);
 			})
 			.finally(() => {
 				setLoading(false);
@@ -79,10 +79,10 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 				<h1 className="text-black text-3xl">Admin Panel</h1>
 				<hr className="bg-slate-300 w-11/12 h-0.5 my-3" />
 				<DndContext onDragEnd={handlerDragEnd} collisionDetection={closestCorners}>
-					<Area images={newImages} />
+					<Area images={newImages} setImages={setImages} setNewImages={setNewImages} />
 				</DndContext>
-				{loading && <p className='text-black py-2'>Loading...</p>}
-				{errorrUpdating && <p className='text-black py-2'>Error</p>}
+				{loading && <p className="text-black py-2">Loading...</p>}
+				{errorrUpdating && <p className="text-black py-2">Error</p>}
 				<button className="bg-black w-11/12 rounded shadow-md my-2 py-1 hover:bg-gray-900 active:bg-black" onClick={() => handlerSubmitChanges()}>
 					SAVE
 				</button>
