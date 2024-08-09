@@ -5,9 +5,12 @@ import Area from './Area';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { ImagesContext } from '../../contexts/imagesContext';
+import SubModalAdd from './SubModalAdd';
 export default function Modal({ setModal,  categoryName }) {
 	const { images, replaceImages, newImages, replaceNewImages, urlBase } = useContext(ImagesContext)
 	const [loading, setLoading] = useState(false);
+	const [samePlace, setSamePlace] = useState(true);
+	const [subModalAdd, setSubModalAdd] = useState(false);
 	const [errorrUpdating, setErrorUpdating] = useState(false);
 
 	useEffect(() => {
@@ -68,6 +71,7 @@ export default function Modal({ setModal,  categoryName }) {
 	const handlerDragEnd = (event) => {
 		const { active, over } = event;
 		if (active.id === over.id) return;
+		setSamePlace(false);
 		replaceNewImages((imgs) => {
 			const originalPosition = getImagesPosition(active.id);
 			const newPosition = getImagesPosition(over.id);
@@ -87,11 +91,11 @@ export default function Modal({ setModal,  categoryName }) {
 				<DndContext onDragEnd={handlerDragEnd} collisionDetection={closestCorners}>
 					<Area/>
 				</DndContext>
+				{samePlace &&<button onClick={()=> setSubModalAdd(true)} className="bg-sky-600 w-11/12 rounded shadow-md my-4 py-1 hover:shadow-md active:bg-sky-700 active:shadow-none text-white " >+ ADD IMAGE</button>}
 				{loading && <p className="text-black py-2">Loading...</p>}
 				{errorrUpdating && <p className="text-black py-2">Error</p>}
-				<button className="bg-black w-11/12 rounded shadow-md my-2 py-1 hover:bg-gray-900 active:bg-black" onClick={() => handlerSubmitChanges()}>
-					SAVE
-				</button>
+				{!samePlace && <button className="bg-black w-11/12 rounded shadow-md py-1 my-4 hover:bg-gray-900 active:bg-black" onClick={() => handlerSubmitChanges()}>SAVE</button>}
+				{subModalAdd && <SubModalAdd setSubModalAdd={setSubModalAdd}/>}
 			</div>
 		</div>
 	);
