@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { ImagesContext } from '../../contexts/imagesContext';
 
-export default function SubModalDelete({ subModalInfo, setSubModalDelete, setDraggable }) {
+export default function SubModalDelete({ subModalInfo, setSubModalDelete, setDraggable, categoryName }) {
 	const { urlBase, deleteImage,deleteNewImage } = useContext(ImagesContext);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
@@ -17,7 +17,7 @@ export default function SubModalDelete({ subModalInfo, setSubModalDelete, setDra
 	const deleteHandler = () => {
 		setLoading(true);
 		axios
-			.delete(`${urlBase}/images/backgroundDesign/${subModalInfo.id}`, {
+			.delete(`${urlBase}/images/${categoryName}/${subModalInfo.id}`, {
 				headers: {
 					Authorization: token,
 				},

@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { ImagesContext } from '../../contexts/imagesContext';
 
-export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggable }) {
+export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggable, categoryName }) {
 	const { urlBase , updateImage, updateNewImage,removeUnderscore } = useContext(ImagesContext);
 	const [name, setName] = useState(subModalInfo.name);
 	const [description, setDescription] = useState(subModalInfo.description);
@@ -19,7 +19,7 @@ export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggab
 	const editHandler = () => {
 		setLoading(true);
 		axios
-			.put(`${urlBase}/images/backgroundDesign/${subModalInfo.id}`, {
+			.put(`${urlBase}/images/${categoryName}/${subModalInfo.id}`, {
 				name: name,
 				description: description	
 			},{

@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { ImagesContext } from '../../contexts/imagesContext';
 
-export default function SubModalAdd({ setSubModalAdd}) {
+export default function SubModalAdd({ setSubModalAdd, categoryName}) {
 	const { urlBase , addImage, addNewImage, images, removeUnderscore } = useContext(ImagesContext);
 	const position = images.length;
 	const [file, setFile] = useState(null);
@@ -26,7 +26,7 @@ export default function SubModalAdd({ setSubModalAdd}) {
 		setLoading(true);
 
 		axios
-			.post(`${urlBase}/images/backgroundDesign`, formData,{
+			.post(`${urlBase}/images/${categoryName}`, formData,{
 				headers: {
 					'Content-Type': 'multipart/form-data',
 					Authorization: token,

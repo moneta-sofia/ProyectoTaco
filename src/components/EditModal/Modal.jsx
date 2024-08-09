@@ -89,13 +89,13 @@ export default function Modal({ setModal,  categoryName }) {
 				<h1 className="text-black text-3xl">Admin Panel</h1>
 				<hr className="bg-slate-300 w-11/12 h-0.5 my-3" />
 				<DndContext onDragEnd={handlerDragEnd} collisionDetection={closestCorners}>
-					<Area/>
+					<Area categoryName={categoryName}/>
 				</DndContext>
 				{samePlace &&<button onClick={()=> setSubModalAdd(true)} className="bg-sky-600 w-11/12 rounded shadow-md my-4 py-1 hover:shadow-md active:bg-sky-700 active:shadow-none text-white " >+ ADD IMAGE</button>}
 				{loading && <p className="text-black py-2">Loading...</p>}
 				{errorrUpdating && <p className="text-black py-2">Error</p>}
 				{!samePlace && <button className="bg-black w-11/12 rounded shadow-md py-1 my-4 hover:bg-gray-900 active:bg-black" onClick={() => handlerSubmitChanges()}>SAVE</button>}
-				{subModalAdd && <SubModalAdd setSubModalAdd={setSubModalAdd}/>}
+				{subModalAdd && <SubModalAdd setSubModalAdd={setSubModalAdd} categoryName={categoryName}/>}
 			</div>
 		</div>
 	);

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SubModalDelete from './SubModalDelete';
 import SubModalEdit from './SubModalEdit';
 
-export default function Images({ id, name, img, description }) {
+export default function Images({ id, name, img, description, categoryName }) {
 	const [subModalDelete, setSubModalDelete] = useState(false);
 	const [subModalEdit, setSubModalEdit] = useState(false);
 	const [draggable, setDraggable] = useState(true);
@@ -51,7 +51,7 @@ export default function Images({ id, name, img, description }) {
 				</button>
 			</div>
 			{subModalDelete && <SubModalDelete subModalInfo={subModalInfo} setSubModalDelete={setSubModalDelete} setDraggable={setDraggable} />}
-			{subModalEdit && <SubModalEdit subModalInfo={subModalInfo} setSubModalEdit={setSubModalEdit} setDraggable={setDraggable} />}
+			{subModalEdit && <SubModalEdit subModalInfo={subModalInfo} setSubModalEdit={setSubModalEdit} setDraggable={setDraggable} categoryName={categoryName}/>}
 		</div>
 	);
 }
