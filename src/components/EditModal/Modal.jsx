@@ -81,8 +81,8 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 				<DndContext onDragEnd={handlerDragEnd} collisionDetection={closestCorners}>
 					<Area images={newImages} />
 				</DndContext>
-				{loading && <p>Loading...</p>}
-				{errorrUpdating && <p>Error</p>}
+				{loading && <p className='text-black py-2'>Loading...</p>}
+				{errorrUpdating && <p className='text-black py-2'>Error</p>}
 				<button className="bg-black w-11/12 rounded shadow-md my-2 py-1 hover:bg-gray-900 active:bg-black" onClick={() => handlerSubmitChanges()}>
 					SAVE
 				</button>
