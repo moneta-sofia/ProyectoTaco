@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import UserOptions from './UserOptions';
 import { MdModeEditOutline } from 'react-icons/md';
 import Modal from './EditModal/Modal';
-
+import { ImagesContext } from '../contexts/imagesContext';
 
 export default function Category({ name }) {
-	const [images, setImages] = useState([]);
+	const { images , replaceImages } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
 
 	function removeUnderscore(images) {
-		return images.map(image => {
-			// Extraemos el resto de las propiedades del objeto, excluyendo "_id"
+		return images.map((image) => {
 			const { _id, ...rest } = image;
-			// Creamos un nuevo objeto con el "id" en lugar de "_id" y agregamos el resto de las propiedades
 			return { id: _id, ...rest };
 		});
 	}
@@ -22,7 +20,7 @@ export default function Category({ name }) {
 		try {
 			const response = await fetch(`https://backtaco.onrender.com/images/${name}`);
 			const data = await response.json();
-			setImages(removeUnderscore(data));
+			replaceImages(removeUnderscore(data));
 		} catch (error) {
 			console.log('Error fetching ' + error);
 		}
@@ -41,9 +39,9 @@ export default function Category({ name }) {
 				</button>
 			)}
 
-			{modal && <Modal setModal={setModal} setImages={setImages} images={images} categoryName={name}/>}
+			{modal && <Modal setModal={setModal} categoryName={name} />}
 
-			{images.length > 0 ? (
+			{images ? (
 				images.map((image) => {
 					return (
 						<div key={image.id} className="w-11/12 my-5">

@@ -4,7 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { useState} from "react";
 import SubModal from './SubModal'
 
-export default function Images({ id, name, img , description, setImages, setNewImages }) {
+export default function Images({ id, name, img , description }) {
 	const [subModal, setSubModal] = useState(false);
 	const [draggable, setDraggable] = useState(true);
 	const [subModalInfo, setSubModalInfo] = useState({});
@@ -43,7 +43,7 @@ export default function Images({ id, name, img , description, setImages, setNewI
 					<MdDelete color="white" />
 				</button>
 			</div>
-			{subModal && <SubModal subModalInfo={subModalInfo} setSubModal={setSubModal} setDraggable={setDraggable} setImages={setImages} setNewImages={setNewImages}/>}
+			{subModal && <SubModal subModalInfo={subModalInfo} setSubModal={setSubModal} setDraggable={setDraggable}/>}
 		</div>
 	);
 }

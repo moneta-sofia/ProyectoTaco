@@ -2,12 +2,18 @@ import { closestCorners, DndContext } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
 import { IoCloseOutline } from 'react-icons/io5';
 import Area from './Area';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-export default function Modal({ setModal, setImages, images, categoryName }) {
+import { ImagesContext } from '../../contexts/imagesContext';
+export default function Modal({ setModal,  categoryName }) {
+	const { images, replaceImages, newImages, replaceNewImages } = useContext(ImagesContext)
 	const [loading, setLoading] = useState(false);
 	const [errorrUpdating, setErrorUpdating] = useState(false);
-	const [newImages, setNewImages] = useState(images);
+
+	useEffect(() => {
+		replaceNewImages(images);
+	},[]);
+
 	const token = localStorage.getItem('token');
 
 	function addUnderscore(images) {
@@ -44,7 +50,7 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 				}
 			)
 			.then(function () {
-				setImages(newImages);
+				replaceImages(newImages);
 			})
 			.catch(function () {
 				setErrorUpdating(true);
@@ -62,7 +68,7 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 	const handlerDragEnd = (event) => {
 		const { active, over } = event;
 		if (active.id === over.id) return;
-		setNewImages((imgs) => {
+		replaceNewImages((imgs) => {
 			const originalPosition = getImagesPosition(active.id);
 			const newPosition = getImagesPosition(over.id);
 			return arrayMove(imgs, originalPosition, newPosition);
@@ -79,7 +85,7 @@ export default function Modal({ setModal, setImages, images, categoryName }) {
 				<h1 className="text-black text-3xl">Admin Panel</h1>
 				<hr className="bg-slate-300 w-11/12 h-0.5 my-3" />
 				<DndContext onDragEnd={handlerDragEnd} collisionDetection={closestCorners}>
-					<Area images={newImages} setImages={setImages} setNewImages={setNewImages} />
+					<Area/>
 				</DndContext>
 				{loading && <p className="text-black py-2">Loading...</p>}
 				{errorrUpdating && <p className="text-black py-2">Error</p>}
