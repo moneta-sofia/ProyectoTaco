@@ -55,7 +55,7 @@ export default function SubModalAdd({ setSubModalAdd, categoryName}) {
 		<>
 			<div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center z-20">
 				<div className="w-screen h-screen bg-black opacity-20 fixed z-10 top-0 left-0" onClick={()=>setSubModalAdd(false)} />
-				<div className=" relative bg-slate-100 w-5/12 h-fit px-8 pt-5 pb-4 z-20 rounded-xl flex flex-col justify-center items-center">
+				<div className=" relative bg-slate-100 xl:w-5/12 w-full h-fit px-8 pt-5 pb-4 z-20 rounded-xl flex flex-col justify-center items-center">
 					<button onClick={()=>setSubModalAdd(false)} className="absolute top-0 right-0 m-5">
 						<IoCloseOutline color="black" size={30} />
 					</button>

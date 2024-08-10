@@ -25,10 +25,10 @@ export default function Category({ name }) {
 	}, []);
 
 	return (
-		<div className="base w-full flex flex-col items-center justify-center">
+		<div className="base2 w-full flex flex-col items-center justify-center">
 			<UserOptions />
 			{userName && (
-				<button onClick={() => setModal(true)} className="fixed bottom-10 right-10 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4">
+				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4">
 					<MdModeEditOutline />
 				</button>
 			)}

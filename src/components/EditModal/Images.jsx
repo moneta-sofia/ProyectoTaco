@@ -11,7 +11,7 @@ export default function Images({ id, name, img, description, categoryName }) {
 	const [draggable, setDraggable] = useState(true);
 	const [subModalInfo, setSubModalInfo] = useState({});
 	const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id, disabled: !draggable });
-
+	
 	const handlerSubModal = (typeModal) => {
 		setDraggable(false);
 		setSubModalInfo({ id, name, img, description });
@@ -40,7 +40,7 @@ export default function Images({ id, name, img, description, categoryName }) {
 		<div ref={setNodeRef} style={style} {...attributes} {...listeners} className="m-2 p-2 bg-white flex justify-between rounded shadow-md touch-none">
 			<div className="flex justify-center items-center">
 				<div className="h-5 w-5 bg-cover" style={{ backgroundImage: `url(${img})` }} />
-				<p className="text-black ml-3">{name}</p>
+				<p className="text-black ml-3">{ window.innerWidth > 750?  name : (name.slice(0,15) + "...")}</p>
 			</div>
 			<div className="flex mr-4">
 				<button onClick={()=> handlerSubModal('edit')} onMouseEnter={() => setDraggable(false)} onMouseLeave={handlerDragable} className="delete-button bg-green-600 h-full aspect-square flex justify-center items-center rounded active:bg-green-800 mr-2">

@@ -77,3 +77,10 @@ h3 {
 .slick-track {
 	display: flex;
 }
+
+.base2 {
+	background-image: url('./assets/img/backgroundLarge.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
