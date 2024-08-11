@@ -24,7 +24,7 @@ function App() {
 						<a href="https://www.instagram.com/tacoelshido/">
 							<FaInstagram size={35} color="white" />
 						</a>
-						<a href="">
+						<a href="https://www.linkedin.com/in/diego-m-ruiz/">
 							<FaLinkedin size={35} color="white" />
 						</a>
 						<a href="https://x.com/tacoelshido">
