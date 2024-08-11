@@ -47,7 +47,7 @@ export default function Category({ name }) {
 					<></>
 				)}
 			</div>
-			<div className="bg-black z-[-10] pt-24 relative w-full">
+			<div className="bg-black ">
 				<TacosInfo />
 			</div>
 		</>
