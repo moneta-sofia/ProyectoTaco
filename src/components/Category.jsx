@@ -3,12 +3,12 @@ import UserOptions from './UserOptions';
 import { MdModeEditOutline } from 'react-icons/md';
 import Modal from './EditModal/Modal';
 import { ImagesContext } from '../contexts/imagesContext';
+import TacosInfo from './TacosInfo';
 
 export default function Category({ name }) {
-	const { images , replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
+	const { images, replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
-
 
 	const fetchImages = async () => {
 		try {
@@ -25,28 +25,31 @@ export default function Category({ name }) {
 	}, []);
 
 	return (
-		<div className="base2 w-full flex flex-col items-center justify-center">
+		<>
 			<UserOptions />
 			{userName && (
 				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4">
 					<MdModeEditOutline />
 				</button>
 			)}
-
 			{modal && <Modal setModal={setModal} categoryName={name} />}
-
-			{images ? (
-				images.map((image) => {
-					return (
-						<div key={image.id} className="w-11/12 my-5">
-							<img alt={image.description ? image.description : 'Image'} src={image.url} className="w-full" />
-							{image.description && <p>{image.description} </p>}
-						</div>
-					);
-				})
-			) : (
-				<></>
-			)}
-		</div>
+			<div className="base2 relative z-[-10] w-full flex flex-col items-center justify-center pb-24">
+				{images ? (
+					images.map((image) => {
+						return (
+							<div key={image.id} className="w-11/12 my-5 z-20">
+								<img alt={image.description ? image.description : 'Image'} src={image.url} className="w-full" />
+								{image.description && <p>{image.description} </p>}
+							</div>
+						);
+					})
+				) : (
+					<></>
+				)}
+			</div>
+			<div className="bg-black z-[-10] pt-24 relative w-full">
+				<TacosInfo />
+			</div>
+		</>
 	);
 }

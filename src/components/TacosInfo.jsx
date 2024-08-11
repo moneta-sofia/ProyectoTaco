@@ -31,7 +31,7 @@ export default function TacosInfo() {
 	return (
 		<>
 			<Toaster position="bottom-center" />
-			<section className="w-full flex flex-col items-center ">
+			<section className="w-full flex flex-col items-center z-30 relative">
 				<div className="h-1/3 my-8 flex flex-col justify-center items-center">
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
 					<button className="px-4 py-1 border-solid border-white border-2 rounded-xl my-5 text-2xl"> About me</button>
