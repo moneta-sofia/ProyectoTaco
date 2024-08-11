@@ -30,7 +30,7 @@ export default function TacosInfo() {
 
 	return (
 		<>
-			<Toaster />
+			<Toaster position="bottom-center" />
 			<section className="w-full flex flex-col items-center ">
 				<div className="h-1/3 my-8 flex flex-col justify-center items-center">
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
@@ -54,14 +54,11 @@ export default function TacosInfo() {
 					</a>
 				</div>
 
-				<form ref={form} onSubmit={handlerEmail} className="w-full mb-16 flex flex-col justify-center items-center">
-					<p className="my-4 text-2xl">Name</p>
-					<input name="user_name" type="text" className="bg-transparent border-2 border-solid rounded-xl p-2" />
-					<p className="my-4 text-2xl">Email</p>
-					<input name="user_email" type="email" className="bg-transparent border-2 border-solid rounded-xl p-2" />
-					<p className="my-4 text-2xl">Message</p>
-					<textarea name="message" id="" className="bg-transparent border-2 border-solid rounded-xl w-5/12 min-h-48 p-2"></textarea>
-					<button className="px-4 py-1 bg-white text-black border-solid border-white border-2 rounded-xl my-5 text-2xl">Send</button>
+				<form ref={form} onSubmit={handlerEmail} className="w-4/12 mb-16 flex flex-col justify-center items-end my-16">
+					<input name="user_name"placeholder='Name' type="text" className="bg-transparent placeholder:text-white text-left text-2xl my-3 w-full border-2 border-solid rounded-xl py-3 px-5" />
+					<input name="user_email"placeholder='Email' type="email" className="bg-transparent placeholder:text-white text-left text-2xl my-3 w-full border-2 border-solid rounded-xl py-3 px-5" />
+					<textarea name="message" placeholder='Message' id="" className="bg-transparent placeholder:text-white text-left text-2xl my-3 border-2 border-solid rounded-xl w-full min-h-48 py-3 px-5"></textarea>
+					<button className="px-12 py-1 bg-white text-black border-solid border-white border-2 rounded-xl my-5 text-2xl">Send</button>
 				</form>
 			</section>
 		</>
