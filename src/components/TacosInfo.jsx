@@ -54,7 +54,7 @@ export default function TacosInfo() {
 					</a>
 				</div>
 
-				<form ref={form} onSubmit={handlerEmail} className="w-4/12 mb-16 flex flex-col justify-center items-end my-16">
+				<form ref={form} onSubmit={handlerEmail} className="xl:w-4/12 w-11/12 flex flex-col justify-center items-end xl:mt-16 xl:mb-16 mt-16 mb-36">
 					<input name="user_name"placeholder='Name' type="text" className="bg-transparent placeholder:text-white text-left text-2xl my-3 w-full border-2 border-solid rounded-xl py-3 px-5" />
 					<input name="user_email"placeholder='Email' type="email" className="bg-transparent placeholder:text-white text-left text-2xl my-3 w-full border-2 border-solid rounded-xl py-3 px-5" />
 					<textarea name="message" placeholder='Message' id="" className="bg-transparent placeholder:text-white text-left text-2xl my-3 border-2 border-solid rounded-xl w-full min-h-48 py-3 px-5"></textarea>
