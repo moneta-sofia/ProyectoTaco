@@ -1,11 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
 import { RiTwitterXFill } from 'react-icons/ri';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
+import ModalTacoInfo from './ModalTacoInfo';
 
 export default function TacosInfo() {
+	const [modalInfo, setModalInfo] = useState(false);
 	const form = useRef();
 
 	const handlerEmail = (e) => {
@@ -31,10 +33,11 @@ export default function TacosInfo() {
 	return (
 		<>
 			<Toaster position="bottom-center" />
-			<section className="w-full flex flex-col items-center z-30 relative">
+			<section className="w-full flex flex-col items-center z-30">
+			{modalInfo && <ModalTacoInfo setModalInfo={setModalInfo} />}
 				<div className="h-1/3 my-8 flex flex-col justify-center items-center">
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
-					<button className="px-4 py-1 border-solid border-white border-2 rounded-xl my-5 text-2xl"> About me</button>
+					<button onClick={()=> setModalInfo(true)}  className="px-4 py-1 border-solid border-white border-2 rounded-xl my-5 text-2xl hover:bg-stone-800 active:bg-transparent"> About me</button>
 				</div>
 				<div className="flex w-64 mb-8 justify-around items-center">
 					<a href="https://www.youtube.com/@Tacoelshido">
