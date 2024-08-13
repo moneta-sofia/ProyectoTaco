@@ -16,9 +16,9 @@ export default function ModalTacoInfo({ setModalInfo }) {
 				</div>
 
 				<div className=" xl:mt-16 mt-8 m-2 xl:m-10 xl:w-9/12 w-11/12 ">
-					<p className="text-center xl:text-left my-2"> Soy un generalista en artes visuales digitales con experiencia en diseño y desarrollo de conceptos para medios de animación. Cuento con varios años de experiencia en diseño gráfico, habiendo trabajado como diseñador junior en Psycosoft, una empresa dedicada al diseño y desarrollo de aplicaciones.</p>
-					<p className="text-center xl:text-left my-2">Estoy interesado en adentrarme completamente en el ámbito de la animación. Mi enfoque se centra en un diseño sólido y en la cohesión visual, lo que me permite crear tanto personajes como fondos que no solo destacan por su estética, sino que también mantienen una coherencia estilística que refuerza la identidad de la marca o del proyecto.</p>
-					<p className="text-center xl:text-left my-2">Estoy siempre en búsqueda de nuevas oportunidades para aplicar mi experiencia en proyectos que me desafíen a ser creativo y a colaborar en equipo.</p>
+					<p className="text-center xl:text-left my-2"> I am a digital visual arts generalist with experience in design and concept development for animation media. I have several years of experience in graphic design, having worked as a junior designer at Psycosoft, a design and development company for mobile apps.</p>
+					<p className="text-center xl:text-left my-2">I am interested in moving fully into the field of animation. My focus is on strong design and visual cohesion, which allows me to create both characters and backgrounds that not only stand out aesthetically, but also maintain a stylistic coherence that reinforces the identity of the brand or project.</p>
+					<p className="text-center xl:text-left my-2">I am always on the lookout for new opportunities to apply my experience to projects that challenge me to be creative and collaborate as a team.</p>
 				</div>
 				{window.innerWidth > 1280 && <img src={tacoPhoto} alt="Fotografia de Diego" className="absolute -bottom-10 -right-16 w-56 shadow-xl  rounded-xl border-solid border-2 border-black" />}
 				{window.innerWidth > 1280 && <img src={garabato} alt="Artist persona" className="absolute top-10 right-5 w-36 " />}
