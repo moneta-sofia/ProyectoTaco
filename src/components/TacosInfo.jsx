@@ -35,7 +35,7 @@ export default function TacosInfo() {
 			<Toaster position="bottom-center" />
 			<section className="w-full flex flex-col items-center z-30">
 			{modalInfo && <ModalTacoInfo setModalInfo={setModalInfo} />}
-				<div className="h-1/3 my-8 flex flex-col justify-center items-center">
+				<div className="infos-height flex flex-col justify-center items-center">
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
 					<button onClick={()=> setModalInfo(true)}  className="px-4 py-1 border-solid border-white border-2 rounded-xl my-5 text-2xl hover:bg-stone-800 active:bg-transparent"> About me</button>
 				</div>
