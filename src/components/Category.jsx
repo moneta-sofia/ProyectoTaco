@@ -33,7 +33,7 @@ export default function Category({ name }) {
 				</button>
 			)}
 			{modal && <Modal setModal={setModal} categoryName={name} />}
-			<div className="base2 relative z-[-10] w-full flex flex-col items-center justify-center pb-24">
+			<div className="base2 relative z-[-10] w-full flex flex-col items-center justify-center pb-24 pt-16">
 				{images ? (
 					images.map((image) => {
 						return (
