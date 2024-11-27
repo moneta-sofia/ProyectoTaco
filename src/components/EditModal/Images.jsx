@@ -12,6 +12,7 @@ export default function Images({ id, name, img, description, categoryName }) {
 	const [subModalInfo, setSubModalInfo] = useState({});
 	const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id, disabled: !draggable });
 	
+	
 	const handlerSubModal = (typeModal) => {
 		setDraggable(false);
 		setSubModalInfo({ id, name, img, description });
@@ -37,7 +38,7 @@ export default function Images({ id, name, img, description, categoryName }) {
 	};
 
 	return (
-		<div ref={setNodeRef} style={style} {...attributes} {...listeners} className="m-2 p-2 bg-white flex justify-between rounded shadow-md touch-none">
+		<div ref={setNodeRef} style={style} {...attributes} {...listeners} className="m-2 p-2 bg-white flex justify-between rounded shadow-md touch-none md:w-auto w-10/12">
 			<div className="flex justify-center items-center">
 				<div className="h-5 w-5 bg-cover" style={{ backgroundImage: `url(${img})` }} />
 				<p className="text-black ml-3">{ window.innerWidth > 750?  name : (name.slice(0,15) + "...")}</p>
