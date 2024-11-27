@@ -14,7 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="*" element={<NotFound />} />
-			<Route path="/animation" element={<InProgress />} />
 			<Route path="/ilustration" element={<InProgress />} />
 			<Route
 				path="/characterDesign"
@@ -29,6 +28,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 				element={
 					<ImagesProvider>
 						<Category name={'backgroundDesign'} />
+					</ImagesProvider>
+				}
+			/>
+						<Route
+				path="/animation"
+				element={
+					<ImagesProvider>
+						<Category name={'animation'} />
 					</ImagesProvider>
 				}
 			/>
