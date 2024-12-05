@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ImagesContext } from '../contexts/imagesContext';
 
 export default function Signup() {
 	const [user, setUser] = useState('');
@@ -12,6 +13,7 @@ export default function Signup() {
 	const [errEmailExist, setErrEmailExist] = useState(false);
 	const [err, setErr] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const {urlBase} = useContext(ImagesContext)
 
 	let navigate = useNavigate();
 
@@ -27,7 +29,7 @@ export default function Signup() {
 		setErrEmailExist(false);
 		setLoading(true);
 		axios
-			.post('https://backtaco.onrender.com/user/signup', {
+			.post( urlBase + '/user/signup', {
 				email: email,
 				user: user,
 				password: password,
