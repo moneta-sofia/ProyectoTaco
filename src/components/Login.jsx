@@ -4,15 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { ImagesContext } from '../contexts/imagesContext';
 
 export default function Login() {
+	const {urlBase} = useContext(ImagesContext)
 	const [user, setUser] = useState('');
 	const [password, setPassword] = useState('');
-
 	const [invalidInput, setInvalidInput] = useState(false);
 	const [wrongCredentials, setWrongCredentials] = useState(false);
 	const [redirectMssg, setRedirectMssg] = useState(false);
 	const [loading, setLoading] = useState(false);
 	let navigate = useNavigate();
-	const {urlBase} = useContext(ImagesContext)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -27,7 +26,7 @@ export default function Login() {
 		setWrongCredentials(false);
 		setLoading(true);
 		axios
-			.post( urlBase + '/user/signin', {
+			.post(`${urlBase}/user/signin`, {
 				user: user,
 				password: password,
 			})
