@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 			<Routes>
 				<Route path="/" element={<App />} />
 				<Route path="*" element={<NotFound />} />
-				<Route path="/illustration" element={<Category name={'characterDesign'}/>} />
+				<Route path="/illustration" element={<Category name={'illustration'}/>} />
 				<Route path="/characterDesign" element={<Category name={'characterDesign'} />} />
 				<Route path="/backgroundDesign" element={<Category name={'backgroundDesign'} />} />
 				<Route path="/animation" element={<Category name={'animation'} />} />
