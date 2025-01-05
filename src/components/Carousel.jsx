@@ -78,10 +78,10 @@ export function Carousel() {
 					Design
 				</p>
 			</Link>
-			<Link to="ilustration" draggable="false" className="categoria-container " onClick={handleClick}>
+			<Link to="illustration" draggable="false" className="categoria-container " onClick={handleClick}>
 				<div className="grayPart" />
-				<div id="ilustration" className="category" />
-				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">Ilustration</p>
+				<div id="illustration" className="category" />
+				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">Illustration</p>
 			</Link>
 		</Slider>
 	);
