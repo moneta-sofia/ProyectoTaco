@@ -10,9 +10,11 @@ export default function Category({ name }) {
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
 
+	const extractVideoCode = (url) => url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/)?.[1];
+
 	const fetchImages = async () => {
 		try {
-			const response = await fetch(`${urlBase}/images/${name}`);  //refactor
+			const response = await fetch(`http://localhost:5050/images/${name}`);  //refactor
 			const data = await response.json();
 			replaceImages(removeUnderscore(data));
 		} catch (error) {
@@ -33,12 +35,19 @@ export default function Category({ name }) {
 				</button>
 			)}
 			{modal && <Modal setModal={setModal} categoryName={name} />}
-			<div className="base2 relative z-[-10] w-full flex flex-col items-center justify-center pb-24 pt-16">
+			<div className="base2 relative  w-full flex flex-col items-center justify-center pb-24 pt-16">
 				{images ? (
 					images.map((image) => {
 						return (
 							<div key={image.id} className="w-11/12 my-5 z-20">
-								<img alt={image.description ? image.description : 'Image'} src={image.url} className="w-full" />
+								{
+									(image.url.includes('https://www.youtube.com/') || image.url.includes('https://youtu.be/')) 
+									?
+									<iframe className="w-full aspect-video rounded-xl z-50 " src={`https://www.youtube.com/embed/${extractVideoCode(image.url)}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+									:
+									<img alt={image.description ? image.description : 'Image'} src={image.url} className="w-full" />
+								}
+
 								{image.description && <p>{image.description} </p>}
 							</div>
 						);
