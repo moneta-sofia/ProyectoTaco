@@ -30,12 +30,12 @@ export default function Category({ name }) {
 		<>
 			<UserOptions />
 			{userName && (
-				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4">
+				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4 z-30">
 					<MdModeEditOutline />
 				</button>
 			)}
 			{modal && <Modal setModal={setModal} categoryName={name} />}
-			<div className="base2 relative  w-full flex flex-col items-center justify-center pb-24 pt-16">
+			<div className="base2 relative  w-full flex flex-col items-center justify-center pb-24 pt-16 z-0">
 				{images ? (
 					images.map((image) => {
 						return (

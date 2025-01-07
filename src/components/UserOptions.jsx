@@ -14,7 +14,7 @@ export default function UserOptions() {
 
 	return (
 		<>
-		<div  className='fixed xl:top-100 top-5 xl:left-10 left-5'>
+		<div  className='fixed xl:top-100 top-5 xl:left-10 left-5 z-30'>
 			<Link to="../"  className='flex z-40 cursor-pointer bg-black pl-1 py-1.5 pr-1.5 rounded-full mr-4 xl:mb-0 mb-4 text-slate-100'>
 				<IoIosArrowBack size={35} color='slate-100'/>
 			</Link>
