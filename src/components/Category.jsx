@@ -14,7 +14,7 @@ export default function Category({ name }) {
 
 	const fetchImages = async () => {
 		try {
-			const response = await fetch(`http://localhost:5050/images/${name}`);  //refactor
+			const response = await fetch(`${urlBase}/images/${name}`);  //refactor
 			const data = await response.json();
 			replaceImages(removeUnderscore(data));
 		} catch (error) {
