@@ -41,7 +41,7 @@ export default function Category({ name }) {
 						return (
 							<div key={image.id} className="w-11/12 my-5 z-20">
 								{
-									(image && image.url.includes('https://www.youtube.com/') || image.url.includes('https://youtu.be/')) 
+									(image?.url.includes('https://www.youtube.com/') || image?.url.includes('https://youtu.be/')) 
 									?
 									<iframe className="w-full aspect-video rounded-xl z-50 " src={`https://www.youtube.com/embed/${extractVideoCode(image.url)}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullscreen></iframe>
 									:
