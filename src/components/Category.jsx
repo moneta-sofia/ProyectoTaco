@@ -4,6 +4,7 @@ import { MdModeEditOutline } from 'react-icons/md';
 import Modal from './EditModal/Modal';
 import { ImagesContext } from '../contexts/imagesContext';
 import TacosInfo from './TacosInfo';
+import Navbar from './Navbar';
 
 export default function Category({ name }) {
 	const { images, replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
@@ -29,6 +30,7 @@ export default function Category({ name }) {
 	return (
 		<>
 			<UserOptions />
+			<Navbar/>
 			{userName && (
 				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4 z-30">
 					<MdModeEditOutline />
