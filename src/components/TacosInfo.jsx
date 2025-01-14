@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { FaTiktok } from 'react-icons/fa6';
+import { FaTiktok, FaBluesky } from 'react-icons/fa6';
 import { RiTwitterXFill } from 'react-icons/ri';
 // import emailjs from '@emailjs/browser';
 // import toast, { Toaster } from 'react-hot-toast';
@@ -39,7 +39,7 @@ export default function TacosInfo() {
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
 					<button onClick={()=> setModalInfo(true)}  className="px-4 py-1 border-solid border-white border-2 rounded-xl my-5 text-2xl hover:bg-stone-800 active:bg-transparent"> About me</button>
 				</div>
-				<div className="flex w-64 mb-8 justify-around items-center">
+				<div className="flex w-80 mb-8 justify-around items-center">
 					<a href="https://www.youtube.com/@Tacoelshido">
 						<FaYoutube size={35} color="white" />
 					</a>
@@ -54,6 +54,9 @@ export default function TacosInfo() {
 					</a>
 					<a href="https://www.tiktok.com/@tacoelshido">
 						<FaTiktok size={28} color="white" />
+					</a>
+					<a href="https://bsky.app/profile/tacoelshido.bsky.social">
+						<FaBluesky size={28} color="white" />
 					</a>
 				</div>
 {/* 
