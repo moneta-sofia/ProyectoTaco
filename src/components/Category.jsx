@@ -32,7 +32,7 @@ export default function Category({ name }) {
 			<UserOptions />
 			<Navbar/>
 			{userName && (
-				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full mr-4 z-30">
+				<button onClick={() => setModal(true)} className="fixed xl:bottom-10 bottom-5 xl:right-10 right-5 text-3xl flex items-center align-center text-black cursor-pointer bg-slate-100 p-4 rounded-full z-30">
 					<MdModeEditOutline />
 				</button>
 			)}
