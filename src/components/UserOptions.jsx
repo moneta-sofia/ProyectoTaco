@@ -13,7 +13,7 @@ export default function UserOptions() {
 		<>
 
 			{userName && (
-				<div className=" flex xl:flex-row flex-col xl:items-center items-start align-center text-black z-40">
+				<div className=" pointer-events-auto z-10 flex xl:flex-row flex-col xl:items-center items-start align-center text-black	">
 					<button onClick={handlerLogOut} className="cursor-pointer bg-slate-100 p-5 rounded-full mr-4 xl:mb-0 mb-4 text-black text-xl">
 						<TbLogout />
 					</button>
