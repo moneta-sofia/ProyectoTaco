@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import UserOptions from './UserOptions';
 import { MdModeEditOutline } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -12,6 +13,8 @@ export default function Category({ name }) {
 	const { images, replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
+	const location = useLocation(); // Detecta cambios en la URL
+
 
 	const extractVideoCode = (url) => url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/)?.[1];
 
@@ -27,7 +30,7 @@ export default function Category({ name }) {
 
 	useEffect(() => {
 		fetchImages();
-	}, []);
+	}, [[name, location.pathname]]);
 
 	return (
 		<>
