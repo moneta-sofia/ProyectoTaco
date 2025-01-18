@@ -7,7 +7,7 @@ export default function Navbar() {
 
 	return (
 		<>
-			<div className='fixed xl:top-100 top-5 xl:right-10 right-5 z-40 flex flex-col items-end'>
+			<div className='self-start'>
 				<button className=" bg-black p-4 rounded-full w-fit cursor-pointer select-none text-3xl flex xl:flex-row flex-col xl:items-center items-start align-center text-white z-40" onClick={() => setIsOpen(!isOpen)}>
                 {/* border-solid border-2 border-white */}
 					{isOpen ? <IoCloseOutline  /> : <IoMenu  />}
