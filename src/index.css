@@ -17,6 +17,10 @@ p, textarea, button, input {
 	color: white;
 }
 
+.active {
+	font-weight: bold;
+}
+
 .base {
 	background-image: url('./assets/img/background.webp');
 	background-position: center;
@@ -113,4 +117,22 @@ h3 {
 	background-position: center;
 	background-repeat: repeat;
 	background-size: contain;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out; /* Transición suave */
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
 }
