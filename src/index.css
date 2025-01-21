@@ -123,3 +123,16 @@ h3 {
     transform: rotate(180deg);
     transition: transform 0.3s ease; /* Smooth rotation transition */
 }
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out; /* Transición suave */
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
