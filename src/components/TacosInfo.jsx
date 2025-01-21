@@ -49,9 +49,9 @@ export default function TacosInfo() {
 					<a href="https://www.linkedin.com/in/diego-m-ruiz/">
 						<FaLinkedin size={35} color="white" />
 					</a>
-					<a href="https://x.com/tacoelshido">
+					{/* <a href="https://x.com/tacoelshido">
 						<RiTwitterXFill size={35} color="white" />
-					</a>
+					</a> */}
 					<a href="https://www.tiktok.com/@tacoelshido">
 						<FaTiktok size={28} color="white" />
 					</a>
