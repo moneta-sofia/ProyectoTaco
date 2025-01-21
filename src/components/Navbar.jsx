@@ -15,36 +15,22 @@ export default function Navbar() {
 					<>
 						<div className={`blur w-screen h-screen fixed inset-0 ${isOpen ? 'md:hidden flex' : 'hidden'}  `}></div>
 						<div className="w-fit h-fit bg-black p-4 mt-3 rounded-xl text-end">
-
-							<NavLink 
-							activeClass="active" 
-							to="/backgroundDesign" 
-							onClick={() => setIsOpen(false)} 
-							className=" text-white cursor-pointer">
+							<NavLink activeClass="active" to="/backgroundDesign" onClick={() => setIsOpen(false)} className=" text-white cursor-pointer">
 								Background Design
 							</NavLink>
 							<hr className="w-full my-2" />
 
-							<NavLink activeClass="active" 
-							to="/characterDesign"
-							onClick={() => setIsOpen(false)}
-							 className=" text-white cursor-pointer ">
+							<NavLink activeClass="active" to="/characterDesign" onClick={() => setIsOpen(false)} className=" text-white cursor-pointer ">
 								Character Design
 							</NavLink>
 							<hr className="w-full my-2" />
 
-							<NavLink activeClass="active" 
-							to="/animation"
-							onClick={() => setIsOpen(false)}
-							 className=" text-white cursor-pointer">
+							<NavLink activeClass="active" to="/animation" onClick={() => setIsOpen(false)} className=" text-white cursor-pointer">
 								Animation
 							</NavLink>
 							<hr className="w-full my-2" />
 
-							<NavLink activeClass="active" 
-							to="/illustration"
-							onClick={() => setIsOpen(false)}
-							 className=" text-white cursor-pointer">
+							<NavLink activeClass="active" to="/illustration" onClick={() => setIsOpen(false)} className=" text-white cursor-pointer">
 								Ilustration
 							</NavLink>
 						</div>
