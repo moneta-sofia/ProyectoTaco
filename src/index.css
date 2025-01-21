@@ -118,3 +118,8 @@ h3 {
 	background-repeat: repeat;
 	background-size: contain;
 }
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+}
