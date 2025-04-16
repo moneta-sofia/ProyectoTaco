@@ -5,7 +5,7 @@ export const ImagesContext = createContext({});
 export const ImagesProvider = (props) => {
 	const [images, setImages] = useState([]);
 	const [newImages, setNewImages] = useState([]);
-	const urlBase = 'https://backtaco-e67r.onrender.com';
+	const urlBase = 'https://backtaco-e00d.onrender.com/';
 
 	function removeUnderscore(images) {
 		return images.map((image) => {
