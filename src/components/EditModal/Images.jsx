@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SubModalDelete from './SubModalDelete';
 import SubModalEdit from './SubModalEdit';
 
-export default function Images({ id, name, img, description, categoryName }) {
+export default function Images({ id, name, img, descriptionESP, descriptionENG, categoryName }) {
 	const [subModalDelete, setSubModalDelete] = useState(false);
 	const [subModalEdit, setSubModalEdit] = useState(false);
 	const [draggable, setDraggable] = useState(true);
@@ -14,7 +14,7 @@ export default function Images({ id, name, img, description, categoryName }) {
 
 	const handlerSubModal = (typeModal) => {
 		setDraggable(false);
-		setSubModalInfo({ id, name, img, description });
+		setSubModalInfo({ id, name, img, descriptionESP, descriptionENG});
 		if (typeModal === 'delete') {
 			setSubModalDelete(true);
 		} else if (typeModal === 'edit') {
