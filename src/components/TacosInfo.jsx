@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaTiktok, FaBluesky } from 'react-icons/fa6';
 import { IoDocumentTextOutline } from 'react-icons/io5';
@@ -6,9 +6,12 @@ import { IoDocumentTextOutline } from 'react-icons/io5';
 // import emailjs from '@emailjs/browser';
 // import toast, { Toaster } from 'react-hot-toast';
 import ModalTacoInfo from './ModalTacoInfo';
+import { LanguageContext } from '../contexts/LanguageContext';
 
 export default function TacosInfo() {
 	const [modalInfo, setModalInfo] = useState(false);
+	const {isSpanish} = useContext(LanguageContext);
+
 	// const form = useRef();
 
 	// const handlerEmail = (e) => {
@@ -39,9 +42,8 @@ export default function TacosInfo() {
 				<div className="infos-height flex flex-col justify-center items-center">
 					<h1 className="text-5xl my-3">DIEGO M. RUIZ</h1>
 					<div className="flex items-center">
-						<button onClick={() => setModalInfo(true)} className=" leading-none px-4 py-2 border-solid border-white rounded-xl my-5 text-2xl hover:bg-stone-800 active:bg-transparent" style={{ border: '3px solid' }}>
-							{' '}
-							About me
+						<button onClick={() => setModalInfo(true)} className=" leading-none px-4 py-2 border-solid border-white rounded-xl my-5 text-2xl hover:bg-stone-800" style={{ border: '3px solid' }}>
+							{isSpanish ? 'Sobre mi' : 'About me'}
 						</button>
 						{/* <IoDocumentTextOutline href="/CV-Taco.pdf" download={''} color="white" size={40} className=" cursor-pointer mx-2" /> */}
 					</div>
@@ -67,10 +69,12 @@ export default function TacosInfo() {
 					</a>
 				</div>
 
-				<a  className="px-6 py-2 flex items-center justify-center border-solid border-white bg-white rounded-xl my-5 text-2xl hover:bg-slate-300 active:bg-transparent leading-none mb-14" style={{ border: '3px solid' }} 
+				<a  className="px-6 py-2 flex items-center justify-center border-solid border-white bg-white rounded-xl my-5 text-2xl hover:bg-slate-300 leading-none mb-14" style={{ border: '3px solid' }} 
 				href="https://mail.google.com/mail/?view=cm&fs=1&to=tacoelshido@gmail.com"
 				target="_blank">
-					<p className='leading-none text-black p-0 m-0' >Contact</p>
+					<p className='leading-none text-black p-0 m-0' >
+						{isSpanish? 'Contacto' : 'Contact'}
+					</p>
 				</a>
 				{/* 
 				<form ref={form} onSubmit={handlerEmail} className="xl:w-4/12 w-11/12 flex flex-col justify-center items-end xl:mt-16 xl:mb-16 mt-16 mb-36">
