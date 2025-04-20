@@ -6,7 +6,8 @@ import { ImagesContext } from '../../contexts/imagesContext';
 export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggable, categoryName }) {
 	const { urlBase , updateImage, updateNewImage,removeUnderscore } = useContext(ImagesContext);
 	const [name, setName] = useState(subModalInfo.name);
-	const [description, setDescription] = useState(subModalInfo.description);
+	const [descriptionESP, setDescriptionESP] = useState(subModalInfo.descriptionESP);
+	const [descriptionENG, setDescriptionENG] = useState(subModalInfo.descriptionENG);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 	const token = localStorage.getItem('token');
@@ -21,7 +22,8 @@ export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggab
 		axios
 			.put(`${urlBase}/images/${categoryName}/${subModalInfo.id}`, {
 				name: name,
-				description: description	
+				descriptionESP: descriptionESP,	
+				descriptionENG: descriptionENG	
 			},{
 				headers: {
 					Authorization: token,
@@ -63,8 +65,12 @@ export default function SubModalEdit({ subModalInfo, setSubModalEdit, setDraggab
 							<input type="text"  maxLength="20" onChange={(e)=>setName(e.target.value)} value={name} className='text-black w-full bg-white p-2 border-solid border-2 border-black rounded'/>
 						</div>
 						<div className='flex flex-col w-11/12 mb-3'>
-							<label className='my-2 text-left'>Description:</label>
-							<textarea maxLength="100" onChange={(e)=>setDescription(e.target.value)} value={description} className='text-black w-full bg-white p-2 border-solid border-2 border-black rounded'/>
+							<label className='my-2 text-left'>Description spanish:</label>
+							<textarea maxLength="100" onChange={(e)=>setDescriptionESP(e.target.value)} value={descriptionESP} className='text-black w-full bg-white p-2 border-solid border-2 border-black rounded'/>
+						</div>
+						<div className='flex flex-col w-11/12 mb-3'>
+							<label className='my-2 text-left'>Description english:</label>
+							<textarea maxLength="100" onChange={(e)=>setDescriptionENG(e.target.value)} value={descriptionENG} className='text-black w-full bg-white p-2 border-solid border-2 border-black rounded'/>
 						</div>
 					</form>
 					{loading && <div className='text-black'>Loading...</div>}

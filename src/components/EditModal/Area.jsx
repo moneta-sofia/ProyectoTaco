@@ -20,7 +20,7 @@ export default function Area({categoryName}) {
 			<div className="xl:w-11/12 w-full bg-slate-300 h-4/6 overflow-y-auto overflow-x-hidden">
 				<SortableContext items={newImages} strategy={verticalListSortingStrategy}>
 					{newImages.map((image) => (
-						<Images key={image.id} id={image.id} name={image.name} img={finalImg(image.url)} description={image.description} categoryName={categoryName} />
+						<Images key={image.id} id={image.id} name={image.name} img={finalImg(image.url)} descriptionESP={image.descriptionESP} descriptionENG={image.descriptionENG}  categoryName={categoryName} />
 					))}
 				</SortableContext>
 			</div>
