@@ -8,8 +8,10 @@ import Modal from './EditModal/Modal';
 import { ImagesContext } from '../contexts/imagesContext';
 import TacosInfo from './TacosInfo';
 import Navbar from './Navbar';
+import { LanguageContext } from '../contexts/LanguageContext';
 
 export default function Category({ name }) {
+	const {isSpanish} = useContext(LanguageContext);
 	const { images, replaceImages, urlBase, removeUnderscore } = useContext(ImagesContext);
 	const [modal, setModal] = useState(false);
 	const userName = localStorage.getItem('user');
@@ -59,8 +61,12 @@ export default function Category({ name }) {
 						return (
 							<div key={image.id} className="w-11/12 my-5 z-20">
 								{image?.url.includes('https://www.youtube.com/') || image?.url.includes('https://youtu.be/') ? <iframe className="w-full aspect-video rounded-xl z-50 " src={`https://www.youtube.com/embed/${extractVideoCode(image.url)}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullscreen></iframe> : <img alt={image.description ? image.description : 'Image'} src={image.url} className="w-full z-20" />}
-
-								{image.description && <p>{image.description} </p>}
+								{
+									isSpanish ? 
+									image.descriptionESP && <p>{image.descriptionESP} </p>
+									:
+									image.descriptionENG && <p>{image.descriptionENG} </p>
+								}
 							</div>
 						);
 					})
