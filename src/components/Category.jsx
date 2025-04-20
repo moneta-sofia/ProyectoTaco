@@ -9,6 +9,7 @@ import { ImagesContext } from '../contexts/imagesContext';
 import TacosInfo from './TacosInfo';
 import Navbar from './Navbar';
 import { LanguageContext } from '../contexts/LanguageContext';
+import LanguageButton from './LanguageButton';
 
 export default function Category({ name }) {
 	const {isSpanish} = useContext(LanguageContext);
@@ -41,8 +42,10 @@ export default function Category({ name }) {
 					<Link to="../" className=" z-10 flex cursor-pointer h-fit w-fit bg-black pl-3 py-3.5 pr-4 rounded-full mr-4 xl:mb-0 mb-4 text-slate-100 pointer-events-auto">
 						<IoIosArrowBack size={35} color="slate-100" />
 					</Link>
-
-					<Navbar />
+					<div className='relative flex'>
+						<LanguageButton/>
+						<Navbar />
+					</div>
 				</div>
 				<div className="flex w-full justify-between">
 					<UserOptions />
