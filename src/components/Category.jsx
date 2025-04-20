@@ -43,10 +43,10 @@ export default function Category({ name }) {
 						<IoIosArrowBack size={35} color="slate-100" />
 					</Link>
 					<div className='relative flex z-50'>
-						<div className='mx-3'>
+						<div className='md:mx-3 mx-1'>
 							<LanguageButton/>
 						</div>
-						<div className='mx-3'>
+						<div className='md:mx-3 mx-1'>
 							<Navbar />
 						</div>
 					</div>
