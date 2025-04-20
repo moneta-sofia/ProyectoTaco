@@ -5,9 +5,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
+
 
 export function Carousel() {
 	const [dragging, setDragging] = useState(false);
+	const {isSpanish} = useContext(LanguageContext)
 
 	const handleBeforeChange = () => {
 		setDragging(true);
@@ -61,27 +65,30 @@ export function Carousel() {
 				<div className="grayPart" />
 				<div id="chDesign" className="category" />
 				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">
-					Character <br />
-					Design
+					{isSpanish ? <> Diseño de <br /> Personajes </> : <> Character <br /> Design </>}
+					
 				</p>
 			</Link>
 			<Link to="animation" draggable="false" className="categoria-container " onClick={handleClick}>
 				<div className="grayPart" />
 				<div id="animation" className="category" />
-				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">Animation</p>
+				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">
+					{isSpanish ? <> Animación </> : <> Animation  </>}
+				</p>
 			</Link>
 			<Link to="backgroundDesign" draggable="false"  className="categoria-container " onClick={handleClick}>
 				<div className="grayPart" />
 				<div id="bgDesign" className="category" />
 				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">
-					Background <br />
-					Design
+					{isSpanish ? <> Diseño de <br /> Fondos </> : <> Background <br /> Design </>}
 				</p>
 			</Link>
 			<Link to="illustration" draggable="false" className="categoria-container " onClick={handleClick}>
 				<div className="grayPart" />
 				<div id="illustration" className="category" />
-				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">Illustration</p>
+				<p className=" text-carousel py-5 px-10 m-20 text-4xl bg-black leading-snug z-30">
+				{isSpanish ? <> Ilustración </> : <> Illustration </>}
+				</p>
 			</Link>
 		</Slider>
 	);
