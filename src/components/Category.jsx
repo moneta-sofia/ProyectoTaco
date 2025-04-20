@@ -37,14 +37,18 @@ export default function Category({ name }) {
 
 	return (
 		<>
-			<div className="fixed pointer-events-none z-10 w-full h-screen top-0 xl:px-16 px-5 xl:py-8 py-2 flex flex-col justify-between">
+			<div className="fixed z-10 w-full h-screen top-0 xl:px-16 px-5 xl:py-8 py-2 flex flex-col justify-between">
 				<div className="flex w-full justify-between">
 					<Link to="../" className=" z-10 flex cursor-pointer h-fit w-fit bg-black pl-3 py-3.5 pr-4 rounded-full mr-4 xl:mb-0 mb-4 text-slate-100 pointer-events-auto">
 						<IoIosArrowBack size={35} color="slate-100" />
 					</Link>
-					<div className='relative flex'>
-						<LanguageButton/>
-						<Navbar />
+					<div className='relative flex z-50'>
+						<div className='mx-3'>
+							<LanguageButton/>
+						</div>
+						<div className='mx-3'>
+							<Navbar />
+						</div>
 					</div>
 				</div>
 				<div className="flex w-full justify-between">
@@ -58,7 +62,7 @@ export default function Category({ name }) {
 			</div>
 
 			{modal && <Modal setModal={setModal} categoryName={name} />}
-			<div className="base2 relative z-0 w-full flex flex-col items-center justify-center pb-24 pt-16 ">
+			<div className=" pointer-events-none base2 relative z-0 w-full flex flex-col items-center justify-center pb-24 pt-16 ">
 				{images && (
 					images.map((image) => {
 						return (

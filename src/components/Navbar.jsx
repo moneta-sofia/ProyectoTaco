@@ -7,7 +7,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="transition-transform relative self-start z-10 pointer-events-auto flex flex-col items-end">
+            <div className=" select-none transition-transform relative self-start z-10 pointer-events-auto flex flex-col items-end">
                 <button className={`transition-transform bg-black p-4 rounded-full w-fit cursor-pointer select-none text-3xl flex xl:flex-row flex-col xl:items-center items-start align-center text-white z-40 ${isOpen ? "rotate" : ""}`} onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <IoCloseOutline /> : <IoMenu />}
                 </button>
